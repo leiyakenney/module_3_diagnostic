@@ -1,5 +1,7 @@
 class SearchController < ApplicationController
   def index
-    p "hello"
+    render locals: {
+      facade: HouseMemberSearchResults.new(params[:house])
+    }
   end
 end
