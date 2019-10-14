@@ -19,10 +19,11 @@ class HouseMemberSearchResults
 
     response = conn.get("/v1/characters?key=#{ENV['POTTER_API_KEY']}")
 
-    member_search_data = JSON.parse(response.body, symbolize_names: true)[:results]
+    # binding.pry
+    member_search_data = JSON.parse(response.body, symbolize_names: true)
 
-    binding.pry
     member_search_data.map do |member_data|
+      Member.new(member_data)
     end
   end
 
