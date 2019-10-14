@@ -4,22 +4,26 @@ class HouseMemberSearchResults
   end
 
   def house_name
-    house
+    members.house
   end
 
   def member_count
     members.count
   end
 
-  def house
+  def members
     conn = Faraday.new(url: "https://www.potterapi.com/v1/") do |faraday|
       faraday.headers["X-API-KEY"] = ENV['POTTER_API_KEY']
       faraday.adapter Faraday.default_adapter
     end
 
-    response = conn.get("/characters")
+    response = conn.get("/v1/characters?key=#{ENV['POTTER_API_KEY']}")
 
     member_search_data = JSON.parse(response.body, symbolize_names: true)[:results]
+
+    binding.pry
+    member_search_data.map do |member_data|
+    end
   end
 
   private
