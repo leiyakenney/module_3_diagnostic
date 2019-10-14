@@ -1,7 +1,8 @@
-<h1> Total <%= facade.house_name %> Members:  </h1>
+<h1> Total Gryffindor Members: <%= @members.count %> </h1>
 
-<% facade.members.each do |member| %>
+<% @members.each do |member| %>
   <ul class="member">
     <li class="name"><%= member.name %></li>
+    <li class="house"><%= member.house %></li>
   </ul>
 <% end %>
