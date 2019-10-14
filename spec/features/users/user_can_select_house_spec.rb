@@ -8,7 +8,7 @@ feature 'A User can select a house' do
   end
   scenario 'can see a total of the number of members for that house' do
 
-    expect(current_path).to eq("/search")
+    expect(current_path).to eq(search_path)
     expect(page).to have_content("Total Gryffindor Members: 18")
     expect(house_list).to have(18).things
   end
