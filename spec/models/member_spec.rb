@@ -4,7 +4,9 @@ describe Member do
   it "exists" do
     attrs = {
       name: "Hermione Granger",
-      house: "Gryffindor"
+      house: "Gryffindor",
+      role: "Student",
+      patronus: "Otter"
     }
 
     member = Member.new(attrs)
