@@ -3,9 +3,11 @@ class SearchController < ApplicationController
     @members = search_members(params[:house])
   end
 
+  private
+
   def search_members(state)
     #grab relevant data from external api
-    json_response = conn.get("/v1/characters?key=#{ENV['POTTER_API_KEY']}")
+    json_response = conn.get("/v1/characters?house=Gryffindor&key=#{ENV['POTTER_API_KEY']}")
     member_data = JSON.parse(json_response.body, symbolize_names: true)
 
     #format data by changing it into an object
